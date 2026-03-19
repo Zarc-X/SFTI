@@ -1,0 +1,21 @@
+<view class="result-content">
+  <!-- <view class="result-text" wx:for="{{results}}" wx:key="id">
+    <text class="t">{{index + 1}}：{{item.question}}</text>
+    <text class="t">{{item.analysis}}</text>
+  </view> -->
+  <view class="result-text">为你推荐：《{{recommend}}》</view>
+
+  <view class="result-text">作品简介：</view>
+
+  <view class="result-text">{{rd.intro}}</view>
+
+  <view class="result-text" >
+    <image class="iimmgg" src="{{ResultImgURL}}" alt="结果图片" style="width: 100%;" mode="widthFix"/>
+  </view>
+
+  <view class="result-text" style="flex-direction: row;">
+    <button class="result-button" bindtap="goToHome"  style="margin-right: 20px;">返回首页</button>
+    <button class="result-button" open-type="share" >分享</button>
+  </view>
+  <view class="dd"></view>
+</view>

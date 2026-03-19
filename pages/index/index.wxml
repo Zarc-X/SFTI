@@ -1,0 +1,5 @@
+<view class="a" style="padding-top: 20px;">
+   <image style="height: 616rpx; display: block; box-sizing: border-box" src="{{logoUrl}}" mode="aspectFit"/>
+   <text class="text">科幻测一测安利版</text>
+   <button class="button" bind:tap="ceshi">开始测试</button>
+</view>

@@ -1,0 +1,17 @@
+page{
+	background-color: rgb(240, 240, 240);
+}
+.a{
+display: flex;
+flex-direction: column;
+align-items: center;
+background-color: #fff;
+border-radius: 3%;
+margin: 50px 20px;
+padding-bottom: 30px;
+}
+.text{
+margin: 30px 0;
+font-size: 25px;
+font-weight:540;
+}

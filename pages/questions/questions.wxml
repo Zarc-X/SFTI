@@ -1,0 +1,28 @@
+<image class="iimmgg" src="{{bgURL[currentQuestion-1]}}" alt="结果图片" style="width: 100%;height: 100%;" mode=""/>
+<view style="padding: 20px;">
+  <form bindsubmit="submitForm" >
+    <view class="a" wx:for="{{moduleList}}" 
+                    wx:key="id" 
+                    wx:for-item="oneModule" 
+                    wx:if="{{currentQuestion === index+1}}" 
+                    style="margin-top:60% ;">
+        <!-- 4-1 题目编号区域 -->
+        <view class="b">
+          <view class="kg"> </view>
+          <text>第{{index+1}}题</text>
+        </view>
+        <!-- 4-2 题干（问题描述） -->
+        <text class="t"> {{oneModule.question}} </text>
+        <!-- 4-3 单选题选项 -->
+        <radio-group class="c" name="ques{{index+1}}" bindchange="handleAnswer">
+          <label wx:for="{{oneModule.options}}" >
+            <radio class="d" color="#000000" wx:key="{{item.value}}" value="{{item.value}}" />
+            <text>{{item.text}}</text>
+          </label>
+        </radio-group>
+        <view class="dd"></view>
+    <button class="button" bind:tap="nextQuestion" wx:if="{{nextQuestionBtn && currentQuestion !== 4}}">下一题</button>
+    <button class="button" form-type="submit" wx:if="{{nextQuestionBtn && currentQuestion === 4}}">查看解析</button>
+    </view>
+  </form>
+</view>
