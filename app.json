@@ -2,15 +2,14 @@
   "pages": [
     "pages/index/index",
     "pages/questions/questions",
-    "pages/result/result"
+    "pages/result/result",
+    "pages/avatar/avatar"
   ],
   "window": {
+    "navigationBarBackgroundColor": "#0B0F1F",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "科幻社测一测",
-    "navigationBarBackgroundColor": "#000000"
-  },
-  "style": "v2",
-  "componentFramework": "glass-easel",
-  "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+    "navigationBarTitleText": "SFTI科幻人格测试",
+    "backgroundColor": "#0B0F1F",
+    "backgroundTextStyle": "light"
+  }
 }

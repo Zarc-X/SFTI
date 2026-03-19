@@ -1,0 +1,14 @@
+<view class="bg-stars"></view>
+<view class="container img-container">
+  <view class="title">身份构建档案</view>
+  <view class="preview-box" bindtap="chooseImage">
+    <image wx:if="{{uploadImageUrl && !generatedImageUrl}}" src="{{uploadImageUrl}}" mode="aspectFill"></image>
+    <image wx:elif="{{generatedImageUrl}}" src="{{generatedImageUrl}}" mode="aspectFill"></image>
+    <view wx:else class="upload-tips"><text class="plus">+</text><text>点击上传照片</text></view>
+  </view>
+  <view class="btn-group">
+    <button class="generate-btn" bindtap="handleGenerateImage" wx:if="{{!generatedImageUrl}}" disabled="{{isGenerating}}">{{isGenerating ? '正在传输至深空网络...' : '开始生成科幻形象'}}</button>
+    <button class="save-btn" bindtap="saveToAlbum" wx:if="{{generatedImageUrl}}">保存到相册</button>
+    <button class="retry-btn" bindtap="handleGenerateImage" wx:if="{{generatedImageUrl}}" disabled="{{isGenerating}}">重新生成</button>
+  </view>
+</view>

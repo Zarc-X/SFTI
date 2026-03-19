@@ -1,21 +1,25 @@
-<view class="result-content">
-  <!-- <view class="result-text" wx:for="{{results}}" wx:key="id">
-    <text class="t">{{index + 1}}：{{item.question}}</text>
-    <text class="t">{{item.analysis}}</text>
-  </view> -->
-  <view class="result-text">为你推荐：《{{recommend}}》</view>
-
-  <view class="result-text">作品简介：</view>
-
-  <view class="result-text">{{rd.intro}}</view>
-
-  <view class="result-text" >
-    <image class="iimmgg" src="{{ResultImgURL}}" alt="结果图片" style="width: 100%;" mode="widthFix"/>
+<view class="bg-stars"></view>
+<view class="container result-container" wx:if="{{resultData}}">
+  <view class="result-header">
+    <view class="code">{{resultData.code}}</view>
+    <view class="name">{{resultData.name}}</view>
+    <view class="short">"{{resultData.short}}"</view>
   </view>
-
-  <view class="result-text" style="flex-direction: row;">
-    <button class="result-button" bindtap="goToHome"  style="margin-right: 20px;">返回首页</button>
-    <button class="result-button" open-type="share" >分享</button>
+  <view class="bars-box">
+    <view class="bar-row" wx:for="{{bars}}" wx:key="index">
+      <view class="bar-label {{item.isLeft ? 'active' : ''}}">{{item.leftLabel}}</view>
+      <view class="bar-track">
+        <view class="bar-fill {{item.isLeft ? 'left-fill' : 'right-fill'}}"></view>
+      </view>
+      <view class="bar-label {{!item.isLeft ? 'active' : ''}}">{{item.rightLabel}}</view>
+    </view>
   </view>
-  <view class="dd"></view>
+  <view class="desc-box">{{resultData.desc}}</view>
+  <view class="action-box">
+    <button class="primary-btn" bindtap="goGenerate">生成你的专属形象卡</button>
+    <view class="row-btns">
+      <button class="sub-btn" bindtap="retest">重新测试</button>
+      <button class="sub-btn" open-type="share">分享好友</button>
+    </view>
+  </view>
 </view>

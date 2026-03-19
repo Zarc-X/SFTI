@@ -1,77 +1,28 @@
-// pages/result/result.js
-import textResults from "../../utils/textResult"
-
+const { personalities } = require('../../utils/textResult.js');
 Page({
-  data: {
-    rds: textResults,
-    rd: {} ,
-    recommends:["星际迷航","星际拓荒","银河系漫游指南","无人深空","她的回忆","光环","索拉里斯星","冰汽时代","太空无垠","群星","银河英雄传说","极乐迪斯科","沙丘","亡星余孤","基地系列","赛博朋克2077"],
-    recommend:"",
-    results:[],
-    counter: 0,
-    ResultImgURL:""
+  data: { resultCode: '', resultData: null, bars: [] },
+  onLoad(options) {
+    const code = options.code || 'TFEM';
+    const rawCode = code.replace(/-/g, '');
+    const dims = [
+      { left: '技术(T)', right: '人文(H)', leftCode: 'T', val: rawCode[0] },
+      { left: '自由(F)', right: '秩序(O)', leftCode: 'F', val: rawCode[1] },
+      { left: '开拓(E)', right: '守护(G)', leftCode: 'E', val: rawCode[2] },
+      { left: '宏大(M)', right: '微小(I)', leftCode: 'M', val: rawCode[3] }
+    ];
+    const bars = dims.map(d => ({
+      leftLabel: d.left,
+      rightLabel: d.right,
+      isLeft: d.val === d.leftCode
+    }));
+    this.setData({ resultCode: code, resultData: personalities[code], bars });
   },
-
-  getResultImgURL:function(){
-    
-  },
-  goToHome:function(){
-    wx.redirectTo({
-      url: '/pages/index/index',
-    })
-  },
-  onLoad: function(options) {
-    const app = getApp(); // 获取全局应用程序实例
-    const rs = JSON.parse(decodeURIComponent(options.rs));
-    this.setData({
-      results: rs
-    });
-    this.data.results.forEach((result, index) => {
-      if(result.option==='B'){
-        const c = this.data.counter;
-        this.setData({
-          counter: c + 2 ** (3 - index)
-        })
-      }
-    });
-    
-    this.setData({
-      recommend: this.data.recommends[this.data.counter],
-      rd: this.data.rds[this.data.counter]
-    });
-
-    wx.cloud.getTempFileURL({
-      fileList: [
-        'cloud://prod-2gzkep2k98d9b623.7072-prod-2gzkep2k98d9b623-1350898369/img/r'+(this.data.counter+1)+'.jpg'
-      ],
-      success: res => {
-        // 2. 从返回结果中提取临时 URL
-        const tempFileURL = res.fileList[0].tempFileURL;
-        console.log('测试结果的临时 URL:', tempFileURL);
-     
-        // 3. 使用临时 URL（例如展示图片）
-        this.setData({
-          ResultImgURL: tempFileURL
-        });
-      },
-      fail: err => {
-        console.error('获取失败:', err);
-      }
-    })
-  },
+  goGenerate() { wx.navigateTo({ url: '/pages/avatar/avatar?code=' + this.data.resultCode }); },
+  retest() { wx.reLaunch({ url: '/pages/index/index' }); },
   onShareAppMessage() {
     return {
-      title: '快来测测你适合什么样的科幻作品吧！',
-      path: '/pages/index/index',
-      imageUrl: 'http://stk0d3166.hb-bkt.clouddn.com/image/logo.jpg'
-    };
-  },
-  // onShareTimeline() {
-  //   return {
-  //     title: '分享到朋友圈', // 朋友圈分享标题
-  //     query: 'from=timeline', // 自定义参数
-  //     imageUrl: '/pages/image/logo.jpg', // 朋友圈分享图片
-  //   };
-  // },
-  
-})
+      title: '我是SFTI科幻宇宙中的【' + this.data.resultData.name + '】，快来测测你的科幻人格吧！',
+      path: '/pages/index/index'
+    }
+  }
+});

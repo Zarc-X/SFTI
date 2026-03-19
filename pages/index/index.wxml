@@ -1,5 +1,11 @@
-<view class="a" style="padding-top: 20px;">
-   <image style="height: 616rpx; display: block; box-sizing: border-box" src="{{logoUrl}}" mode="aspectFit"/>
-   <text class="text">科幻测一测安利版</text>
-   <button class="button" bind:tap="ceshi">开始测试</button>
+<view class="bg-stars"></view>
+<view class="container index-container">
+  <view class="title-space">
+    <text class="title">SFTI</text>
+    <text class="subtitle">科幻人格测试</text>
+  </view>
+  <view class="desc-space">
+    <text>测测你在星际中的角色</text>
+  </view>
+  <button class="start-btn" bindtap="startTest">开始测试</button>
 </view>

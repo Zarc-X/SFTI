@@ -1,30 +1,18 @@
-/* pages/result/result.wxss */
-page{
-	background-color: rgb(82, 82, 82);
-}
-.result-content{
-	color: #FFF;
-	display: flex;
-	flex-direction: column;
-	margin: 15px;
-	background-color: rgb(0, 0, 0);
-	padding: 5px;
-	border-radius: 15px;
-	}
-.result-text{
-	display: flex;
-	flex-direction: column;
-	margin: 10px 10px 0px 10px ;
-}
-.t{
-	line-height: 1.8;
-}
-.dd{
-	height: 10px;
-}
-.result-button {
-	font-weight: 540;
-	color: rgb(0, 0, 0);
-	background-color: #ffffff;
-	width: 100px;
-}
+.result-container { padding: 40rpx; }
+.result-header { text-align: center; margin-bottom: 60rpx; }
+.code { font-size: 40rpx; color: rgba(255,255,255,0.5); letter-spacing: 5rpx; }
+.name { font-size: 70rpx; font-weight: bold; color: #00F0FF; margin: 20rpx 0; text-shadow: 0 0 20rpx rgba(0,240,255,0.6); }
+.short { font-size: 32rpx; color: #fff; font-style: italic; }
+.bars-box { width: 100%; margin: 0 auto 60rpx; padding: 0 20rpx; box-sizing: border-box; }
+.bar-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30rpx; }
+.bar-label { font-size: 28rpx; color: rgba(255,255,255,0.4); width: 120rpx; text-align: center; transition: all 0.3s; }
+.bar-label.active { color: #00F0FF; font-weight: bold; text-shadow: 0 0 10rpx rgba(0,240,255,0.5); }
+.bar-track { flex: 1; height: 20rpx; background: rgba(255,255,255,0.1); border-radius: 10rpx; margin: 0 20rpx; position: relative; overflow: hidden; }
+.bar-fill { position: absolute; top: 0; height: 100%; width: 75%; border-radius: 10rpx; box-shadow: 0 0 15rpx rgba(0,240,255,0.5); }
+.bar-fill.left-fill { left: 0; background: linear-gradient(90deg, #00F0FF, #0080FF); }
+.bar-fill.right-fill { right: 0; background: linear-gradient(270deg, #00F0FF, #0080FF); }
+.desc-box { background: rgba(26, 15, 42, 0.8); padding: 40rpx; border-radius: 20rpx; font-size: 28rpx; line-height: 1.6; margin-bottom: 60rpx; border: 1rpx solid rgba(255,255,255,0.1); }
+.action-box { width: 100%; }
+.primary-btn { width: 100%; height: 90rpx; line-height: 90rpx; background: #00F0FF; color: #0B0F1F; font-weight: bold; border-radius: 45rpx; margin-bottom: 30rpx; box-shadow: 0 0 20rpx rgba(0,240,255,0.5); }
+.row-btns { display: flex; justify-content: space-between; }
+.sub-btn { width: 45%; height: 80rpx; line-height: 80rpx; background: transparent; color: #fff; border: 1rpx solid rgba(255,255,255,0.3); border-radius: 40rpx; font-size: 28rpx; }

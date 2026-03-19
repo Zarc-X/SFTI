@@ -1,42 +1,8 @@
-page{
-background-color: rgb(240, 240, 240);
-}
-.a{
-height: fit-content;
-display: flex;
-flex-direction: column;
-background-color: #fff;
-padding: 12px;
-border-radius: 15px;
-opacity: 0.8;
-}
-.kg{
-background-color: #000000;
-width: 10px;
-height: 27px;
-margin-right: 5px;
-margin-bottom: 4px;
-}
-.b{
-display: flex;
-flex-direction: row;
-align-items: center;
-}
-.t{
-line-height: 1.8;
-}
-.c{
-display: flex;
-flex-direction: column;
-}
-.d{
-margin: 5px 0;
-}
-.dd{
-height: 20px;
-}
-.iimmgg {
-	position: fixed;
-	top: 0;
-	left: 0;
-}
+.q-container { padding-top: 100rpx; }
+.progress-bar { font-size: 32rpx; color: #00F0FF; margin-bottom: 60rpx; text-shadow: 0 0 10rpx rgba(0,240,255,0.5); }
+.q-card { width: 90%; background: rgba(26, 15, 42, 0.6); border: 1rpx solid rgba(0, 240, 255, 0.3); border-radius: 20rpx; padding: 50rpx 40rpx; box-shadow: 0 8rpx 32rpx rgba(0,0,0,0.5); backdrop-filter: blur(10px); }
+.q-title { font-size: 36rpx; line-height: 1.5; margin-bottom: 50rpx; }
+.option-item { padding: 30rpx; margin-bottom: 30rpx; background: rgba(11, 15, 31, 0.8); border: 1rpx solid rgba(255, 255, 255, 0.1); border-radius: 15rpx; font-size: 30rpx; transition: all 0.2s; }
+.option-item:active { background: rgba(0, 240, 255, 0.2); border-color: #00F0FF; }
+.bottom-action { margin-top: 50rpx; width: 90%; }
+.back-btn { background: transparent; color: rgba(255,255,255,0.5); border: 1rpx solid rgba(255,255,255,0.3); border-radius: 10rpx; font-size: 28rpx; }
