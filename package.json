@@ -1,0 +1,23 @@
+{
+  "name": "sfti",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zarc-X/SFTI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zarc-X/SFTI/issues"
+  },
+  "homepage": "https://github.com/Zarc-X/SFTI#readme",
+  "dependencies": {
+    "openai": "^6.32.0"
+  }
+}
