@@ -11,5 +11,6 @@
     "navigationBarTitleText": "SFTI科幻人格测试",
     "backgroundColor": "#0B0F1F",
     "backgroundTextStyle": "light"
-  }
+  },
+  "lazyCodeLoading": "requiredComponents"
 }
