@@ -220,11 +220,11 @@ Page({
     });
   },
 
-    saveToAlbum() {
+  saveToAlbum() {
     if (!this.data.generatedImageUrl) return;
-    
+
     wx.showLoading({ title: '正在下载影像...', mask: true });
-    
+
     // 指定本地路径并加拓展名
     const localFilePath = wx.env.USER_DATA_PATH + '/sfti_avatar_' + Date.now() + '.png';
 
@@ -264,27 +264,6 @@ Page({
       fail: (err) => {
         wx.hideLoading();
         wx.showToast({ title: '下载连接失败', icon: 'none' });
-      }
-    });
-  },
-            fail: (err) => {
-              wx.hideLoading();
-              if (err.errMsg.includes('auth deny') || err.errMsg.includes('auth denied')) {
-                wx.showToast({ title: '请授权保存到相册', icon: 'none' });
-              } else {
-                wx.showToast({ title: '保存失败', icon: 'error' });
-              }
-            }
-          });
-        } else {
-          wx.hideLoading();
-          wx.showToast({ title: '网络下载失败', icon: 'none' });
-        }
-      },
-      fail: (err) => {
-        wx.hideLoading();
-        console.error('下载图片失败:', err);
-        wx.showToast({ title: '下载连接断开', icon: 'none' });
       }
     });
   }
