@@ -220,22 +220,53 @@ Page({
     });
   },
 
-  saveToAlbum() {
+    saveToAlbum() {
     if (!this.data.generatedImageUrl) return;
-
+    
     wx.showLoading({ title: '正在下载影像...', mask: true });
+    
+    // 指定本地路径并加拓展名
+    const localFilePath = wx.env.USER_DATA_PATH + '/sfti_avatar_' + Date.now() + '.png';
 
-    // 微信小程序保存图片到相册要求使用本地路径，由于生成的是网络链接图片，必须先下载到本地临时文件
     wx.downloadFile({
       url: this.data.generatedImageUrl,
+      filePath: localFilePath,
       success: (res) => {
         if (res.statusCode === 200) {
           wx.saveImageToPhotosAlbum({
-            filePath: res.tempFilePath,
+            filePath: localFilePath,
             success: () => {
               wx.hideLoading();
               wx.showToast({ title: '档案已存入相册', icon: 'success' });
             },
+            fail: (err) => {
+              wx.hideLoading();
+              const errMsg = err.errMsg || '';
+              if (errMsg.includes('auth') || errMsg.includes('deny') || errMsg.includes('unauthorized')) {
+                wx.showModal({
+                  title: '权限提示',
+                  content: '保存去设置中开启【保存到相册】权限。',
+                  confirmText: '去设置',
+                  success: (mRes) => {
+                    if (mRes.confirm) wx.openSetting();
+                  }
+                });
+              } else {
+                wx.showToast({ title: '保存失败', icon: 'none' });
+              }
+            }
+          });
+        } else {
+          wx.hideLoading();
+          wx.showToast({ title: '下载失败', icon: 'none' });
+        }
+      },
+      fail: (err) => {
+        wx.hideLoading();
+        wx.showToast({ title: '下载连接失败', icon: 'none' });
+      }
+    });
+  },
             fail: (err) => {
               wx.hideLoading();
               if (err.errMsg.includes('auth deny') || err.errMsg.includes('auth denied')) {

@@ -12,5 +12,10 @@
     "backgroundColor": "#0B0F1F",
     "backgroundTextStyle": "light"
   },
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "permission": {
+    "scope.writePhotosAlbum": {
+      "desc": "获取相册权限用于为您保存生成的专属身份档案卡"
+    }
+  }
 }
